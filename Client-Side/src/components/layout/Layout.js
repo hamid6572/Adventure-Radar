@@ -1,14 +1,16 @@
 import MainNav from "./MainNav";
-function layout(props) {
-  return (
-    <div>
-      <MainNav />
-      <main>
-        {
-          props.children //routing tags inside
-        }
-      </main>
-    </div>
-  );
+import Footer from "./Footer";
+function Layout(props) {
+	return (
+		<div>
+			<MainNav user={props.user} />
+			<main>
+				{
+					props.children //routing tags inside
+				}
+			</main>
+			<Footer />
+		</div>
+	);
 }
-export default layout;
+export default Layout;

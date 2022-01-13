@@ -1,0 +1,96 @@
+[
+	{
+		"ratingsAverage": 4.8,
+		"ratingsQuantity": 6,
+		"images": ["tour-2-1.jpg", "tour-2-2.jpg", "tour-2-3.jpg"],
+		"name": "Hunza Valley",
+		"maxGroupSize": 15,
+		"difficulty": "medium",
+		"price": 497,
+		"summary": "Exploring the jaw-dropping Hunza Valley.",
+		"coverImage": "assets/img/tours/hunza-cover.jpg",
+		"startingLocation": "Hunza, Gilgit Baltistan",
+		"duration": "10",
+		"locations": [
+			{
+				"_id": "5c88fa8cf4afda39709c2959",
+				"description": "Lummus Park Beach",
+				"type": "Point",
+				"coordinates": [-80.128473, 25.781842],
+				"day": 1
+			},
+			{
+				"_id": "5c88fa8cf4afda39709c2958",
+				"description": "Islamorada",
+				"type": "Point",
+				"coordinates": [-80.647885, 24.909047],
+				"day": 2
+			},
+			{
+				"_id": "5c88fa8cf4afda39709c2957",
+				"description": "Sombrero Beach",
+				"type": "Point",
+				"coordinates": [-81.0784, 24.707496],
+				"day": 3
+			},
+			{
+				"_id": "5c88fa8cf4afda39709c2956",
+				"description": "West Key",
+				"type": "Point",
+				"coordinates": [-81.768719, 24.552242],
+				"day": 5
+			}
+		]
+	},
+	{
+		"ratingsAverage": 4.2,
+		"ratingsQuantity": 19,
+		"images": ["tour-2-1.jpg", "tour-2-2.jpg", "tour-2-3.jpg"],
+		"name": "Skardu",
+		"maxGroupSize": 15,
+		"difficulty": "medium",
+		"price": 450,
+		"summary": "Travel through the widths and breadths of the wonderful city.",
+		"coverImage": "assets/img/tours/skardu-cover.jpg",
+		"startingLocation": "Skardu, Gilgit Baltistan",
+		"duration": "7",
+		"locations": [
+			{
+				"_id": "5c88fa8cf4afda39709c2959",
+				"description": "Lummus Park Beach",
+				"type": "Point",
+				"coordinates": [-80.128473, 25.781842],
+				"day": 1
+			},
+			{
+				"_id": "5c88fa8cf4afda39709c2958",
+				"description": "Islamorada",
+				"type": "Point",
+				"coordinates": [-80.647885, 24.909047],
+				"day": 2
+			}
+		]
+	},
+	{
+		"ratingsAverage": 3.7,
+		"ratingsQuantity": 11,
+		"images": ["tour-2-1.jpg", "tour-2-2.jpg", "tour-2-3.jpg"],
+		"name": "Soon Valley",
+		"maxGroupSize": 30,
+		"difficulty": "easy",
+		"price": 300,
+		"summary": "Visit the hub of natural sights, lakes, historical spots, villages, forests, hills and more",
+		"coverImage": "assets/img/tours/soon-cover.jpg",
+		"startingLocation": "Khushab, Punjab",
+		"duration": "1",
+		"locations": [
+			{
+				"_id": "5c88fa8cf4afda39709c2959",
+				"description": "Lummus Park Beach",
+				"type": "Point",
+				"coordinates": [-80.128473, 25.781842],
+				"day": 1
+			}
+		]
+	}
+]
