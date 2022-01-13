@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 import Signup from "./pages/Auth/Signup";
 import Login from "./pages/Auth/Login";
 import Overview from "./pages/Tours/Overview";
+import Tour from "./pages/Tours/Tour";
 import { useState } from "react";
 function App() {
 	const [user, setUser] = useState({});
@@ -19,6 +20,7 @@ function App() {
 				element={<Login user={user} setUser={setUser} />}
 			/>
 			<Route path="/signup" exact element={<Signup />} />
+			<Route path="/tours/:slug" element={<Tour />} />
 		</Routes>
 	);
 }

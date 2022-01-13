@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 function Card(props) {
 	return (
 		<div className="card">
@@ -55,9 +56,9 @@ function Card(props) {
 						rating ({props.ratingsQuantity})
 					</span>
 				</p>
-				<a className="btn btn--green btn--small" href="#">
+				<Link className="btn btn--green btn--small" to={"tours/" + props.slug}>
 					Details
-				</a>
+				</Link>
 			</div>
 		</div>
 	);

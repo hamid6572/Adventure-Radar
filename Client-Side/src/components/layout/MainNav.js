@@ -11,9 +11,9 @@ function MainNav(props) {
 	return (
 		<header className="header">
 			<nav className="nav nav--tours">
-				<a href="#" className="nav__el">
+				<Link className="nav__el" to="/">
 					Adventure Radar
-				</a>
+				</Link>
 			</nav>
 			<div className="header__logo">
 				<img src="/assets/img/logo-white.png" alt="Natours logo" />

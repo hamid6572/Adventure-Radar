@@ -63,6 +63,7 @@ function Overview(props) {
 								startingLocation={tour.startingLocation}
 								difficulty={tour.difficulty}
 								duration={tour.duration}
+								slug={tour.slug}
 							></Card>
 						);
 					})

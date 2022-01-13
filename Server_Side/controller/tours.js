@@ -7,6 +7,11 @@ exports.getTours = async (req, res, next) => {
 	});
 };
 
+exports.getTour = async (req, res, next) => {
+	const tour = await Tour.find({ slug: req.params.slug });
+	res.json({ ...tour });
+};
+
 exports.postTour = async (req, res, next) => {
 	const name = req.body.name;
 	const price = req.body.price;

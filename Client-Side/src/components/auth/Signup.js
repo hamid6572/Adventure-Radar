@@ -50,80 +50,82 @@ function Signup(props) {
 			});
 	}
 	return (
-		<main className="main">
-			<div className="singup-form">
-				<h2 className="heading-secondary ma-bt-lg">create your account!</h2>
-				<form className="form form--signup" onSubmit={signupHandeler}>
-					<div className="form__group">
-						<label className="form__label" for="name">
-							Your name
-						</label>
-						<input
-							className="form__input"
-							id="name"
-							type="text"
-							placeholder=""
-							required=""
-							ref={usernameRef}
-						/>
-					</div>
-					<div className="form__group">
-						<label className="form__label" for="email">
-							Email address
-						</label>
-						<input
-							className="form__input"
-							id="email"
-							type="email"
-							placeholder="you@example.com"
-							required=""
-							ref={emailRef}
-						/>
-					</div>
-					<div className="form__group ma-bt-md">
-						<label className="form__label" for="password">
-							Password
+		<Layout>
+			<main className="main">
+				<div className="singup-form">
+					<h2 className="heading-secondary ma-bt-lg">create your account!</h2>
+					<form className="form form--signup" onSubmit={signupHandeler}>
+						<div className="form__group">
+							<label className="form__label" for="name">
+								Your name
+							</label>
 							<input
 								className="form__input"
-								id="password"
-								type="password"
-								placeholder="••••••••"
+								id="name"
+								type="text"
+								placeholder=""
 								required=""
-								minLength="8"
-								ref={passwordRef}
+								ref={usernameRef}
 							/>
-						</label>
-					</div>
-					<div className="form__group ma-bt-md">
-						<label className="form__label" for="passwordConfirm">
-							Confirm password
+						</div>
+						<div className="form__group">
+							<label className="form__label" for="email">
+								Email address
+							</label>
 							<input
 								className="form__input"
-								id="passwordConfirm"
-								type="password"
-								placeholder="••••••••"
+								id="email"
+								type="email"
+								placeholder="you@example.com"
 								required=""
-								minlength="8"
+								ref={emailRef}
 							/>
-						</label>
-					</div>
-					<div className="form__group">
-						<button className="btn btn--green">Sign up</button>
-						<ToastContainer
-							position="top-center"
-							autoClose={5000}
-							hideProgressBar={false}
-							newestOnTop={false}
-							closeOnClick
-							rtl={false}
-							pauseOnFocusLoss
-							draggable
-							pauseOnHover
-						/>
-					</div>
-				</form>
-			</div>
-		</main>
+						</div>
+						<div className="form__group ma-bt-md">
+							<label className="form__label" for="password">
+								Password
+								<input
+									className="form__input"
+									id="password"
+									type="password"
+									placeholder="••••••••"
+									required=""
+									minLength="8"
+									ref={passwordRef}
+								/>
+							</label>
+						</div>
+						<div className="form__group ma-bt-md">
+							<label className="form__label" for="passwordConfirm">
+								Confirm password
+								<input
+									className="form__input"
+									id="passwordConfirm"
+									type="password"
+									placeholder="••••••••"
+									required=""
+									minlength="8"
+								/>
+							</label>
+						</div>
+						<div className="form__group">
+							<button className="btn btn--green">Sign up</button>
+							<ToastContainer
+								position="top-center"
+								autoClose={5000}
+								hideProgressBar={false}
+								newestOnTop={false}
+								closeOnClick
+								rtl={false}
+								pauseOnFocusLoss
+								draggable
+								pauseOnHover
+							/>
+						</div>
+					</form>
+				</div>
+			</main>
+		</Layout>
 	);
 }
 export default Signup;

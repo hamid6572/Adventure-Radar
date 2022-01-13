@@ -1,4 +1,5 @@
 const mongoose = require("mongoose");
+const slugify = require("slugify");
 const tourSchema = new mongoose.Schema({
 	name: {
 		type: String,
@@ -43,6 +44,13 @@ const tourSchema = new mongoose.Schema({
 
 	coverImage: { type: String },
 	startingLocation: { type: String },
+
+	slug: String,
+});
+
+tourSchema.pre("save", function (next) {
+	this.slug = slugify(this.name, { lower: true, trim: true });
+	next();
 });
 
 module.exports = mongoose.model("Tour", tourSchema);
