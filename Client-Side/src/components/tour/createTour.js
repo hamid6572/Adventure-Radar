@@ -3,7 +3,7 @@ import { useNavigate } from "react-router-dom";
 import Layout from "../layout/Layout";
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-function createTour(props) {
+function Createtour(props) {
 	const nameRef = useRef(); 
 	const priceRef = useRef(); 
 	const locationRef = useRef(); 
@@ -11,17 +11,16 @@ function createTour(props) {
 	const maxGroupSizeRef = useRef(); 
 	const navigate = useNavigate();
 	let err = new Error();
-
+	let tourData;
 	function tourHandeler(event) {
 		event.preventDefault();
-		const tourData = {
+		tourData = {
 			name: nameRef.current.value,
 			price: priceRef.current.value,
 			location: locationRef.current.value,
 			duration: durationRef.current.value,
 			maxGroupSize: maxGroupSizeRef.current.value,
 		};
-		console.log(userData);
 		fetch("http://localhost:8000/tour", {
 			method: "POST",
 			body: JSON.stringify(tourData),
@@ -39,7 +38,7 @@ function createTour(props) {
 					throw new Error("Failed to fetch tour status.");
 				}
 				console.log("success");
-				navigate("/getAllTours");
+				navigate("/");
 			})
 			.catch((err) => {
 				toast.error("Validation failed", {
@@ -107,6 +106,8 @@ function createTour(props) {
 									type="text"
 									placeholder=""
 									required=""
+									ref={durationRef}
+
 								/>
 							</label>
 						</div>
@@ -119,6 +120,8 @@ function createTour(props) {
 									type="text"
 									placeholder=""
 									required=""
+									ref={maxGroupSizeRef}
+
 								/>
 							</label>
 						</div>
@@ -142,4 +145,4 @@ function createTour(props) {
 		</Layout>
 	);
 }
-export default Signup;
+export default Createtour;

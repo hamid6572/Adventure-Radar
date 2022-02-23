@@ -1,13 +1,12 @@
 import React from "react";
-import createTourComp from "../../components/createTour";
-function onSignupListener(tourData) {
+import CreateTourComp from "../../components/tour/createTour";
+function onCreateTourListener(tourData) {
 	console.log(tourData);
 }
 function CreateTour(props) {
 	return (
-		<createTourComp
+		<CreateTourComp
 			onCreateTour={onCreateTourListener}
-
 		/>
 	);
 }

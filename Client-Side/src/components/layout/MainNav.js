@@ -21,6 +21,9 @@ function MainNav(props) {
 			<nav className="nav nav--user">
 				{user ? (
 					<>
+						<Link to="/tour" className="nav__el">
+							Create Tour
+						</Link>
 						<span className="nav__el">Hi, {user}!</span>
 						<Link to="/" className="nav__el" onClick={handleLogout}>
 							Logout
