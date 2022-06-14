@@ -6,6 +6,8 @@ import Tour from './pages/Tours/Tour';
 import CreateTour from './pages/Tours/createTour';
 import CustomTour from './pages/Tours/CustomTour';
 import Bookings from './pages/Tours/Bookings';
+import Users from './pages/Users/Users';
+
 import { useState } from 'react';
 const App = () => {
   const [user, setUser] = useState({});
@@ -27,6 +29,7 @@ const App = () => {
       <Route path="/tour" element={<CreateTour />} />
       <Route path="/customtour" element={<CustomTour />} />
       <Route path="/bookings" exact element={<Bookings />} />
+      <Route path="/users" exact element={<Users />} />
     </Routes>
   );
 };

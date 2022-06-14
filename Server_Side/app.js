@@ -4,6 +4,7 @@ const mongoose = require('mongoose');
 
 const authRoute = require('./routes/auth');
 const tourRoute = require('./routes/tours');
+const userRoute = require('./routes/users');
 
 const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
@@ -26,6 +27,7 @@ app.use(cookieParser());
 
 app.use('/auth', authRoute);
 app.use(tourRoute);
+app.use('/users', userRoute);
 
 app.use((error, req, res, next) => {
   //error handeling middleware

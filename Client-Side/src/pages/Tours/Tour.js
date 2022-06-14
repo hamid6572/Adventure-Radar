@@ -9,7 +9,6 @@ let tour = {};
 function Tour(props) {
   let { slug } = useParams();
   const [isLoading, setIsLoading] = useState(true);
-  const [user, setUser] = useState(localStorage.getItem('Username'));
   const navigate = useNavigate();
   let err = new Error();
 
