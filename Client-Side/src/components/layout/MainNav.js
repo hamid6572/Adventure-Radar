@@ -1,54 +1,68 @@
-import { Link } from "react-router-dom";
-import { useState } from "react";
+import { Link } from 'react-router-dom';
+import { useState } from 'react';
 function MainNav(props) {
-	const [user, setUser] = useState(localStorage.getItem("Username"));
+  const [user, setUser] = useState(localStorage.getItem('Username'));
 
-	const handleLogout = () => {
-		localStorage.removeItem("Username");
-		setUser(undefined);
-	};
+  const handleLogout = () => {
+    localStorage.removeItem('Username');
+    setUser(undefined);
+  };
 
-	return (
-		<header className="header">
-			<nav className="nav nav--tours">
-				<Link className="nav__el" to="/">
-					Adventure Radar
-				</Link>
-			</nav>
-			<div className="header__logo">
-				<img src="/assets/img/logo-white.png" alt="Natours logo" />
-			</div>
-			<nav className="nav nav--user">
-				{user ? (
-					<>
-						<Link to="/tour" className="nav__el">
-							Create Tour
-						</Link>
-						<span className="nav__el">Hi, {user}!</span>
-						<Link to="/" className="nav__el" onClick={handleLogout}>
-							Logout
-						</Link>
-					</>
-				) : (
-					<>
-						<Link to="/signup" className="nav__el">
-							SignUp
-						</Link>
-						<Link to="/login" className="nav__el">
-							{/* <img
+  return (
+    <header className="header">
+      <nav className="nav nav--tours">
+        <Link className="nav__el" to="/">
+          Adventure Radar
+        </Link>
+      </nav>
+      <div className="header__logo">
+        <img src="/assets/img/logo-white.png" alt="Natours logo" />
+      </div>
+      <nav className="nav nav--user">
+        {user ? (
+          user == 'touragency1' ? (
+            <>
+              <Link to="/tour" className="nav__el">
+                Create Tour
+              </Link>
+              <Link to="/" className="nav__el" onClick={handleLogout}>
+                Logout
+              </Link>
+            </>
+          ) : (
+            <>
+              <Link to="/bookings" className="nav__el">
+                Bookings
+              </Link>
+              <Link to="/customtour" className="nav__el">
+                Custom Tour
+              </Link>
+              <span className="nav__el">Hi, {user}!</span>
+              <Link to="/" className="nav__el" onClick={handleLogout}>
+                Logout
+              </Link>
+            </>
+          )
+        ) : (
+          <>
+            <Link to="/signup" className="nav__el">
+              SignUp
+            </Link>
+            <Link to="/login" className="nav__el">
+              {/* <img
 								src="./assets/img/users/user-1.jpg"
 								alt="User photo"
 								className="nav__user-img"
 							/> */}
-							<span>Login</span>
-						</Link>
-					</>
-				)}
+              <span>Login</span>
+            </Link>
+          </>
+        )}
 
-				{/* <button class="nav__el">Log in</button>
+        {/* <button class="nav__el">Log in</button>
                 <button class="nav__el nav__el--cta">Sign up</button> */}
-			</nav>
-		</header>
-	);
+      </nav>
+    </header>
+  );
 }
 export default MainNav;

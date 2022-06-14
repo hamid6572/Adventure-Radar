@@ -1,0 +1,4 @@
+kumrat assets/img/tours/Kumrat-Valley.jpg
+kalam assets/img/tours/Kalam,Swat_KPK_(Pakistan).jpg
+kashmir assets/img/tours/Neeulm_Valley_AJK_(Arang_Kel).jpg
+Naran assets/img/tours/Naran.jpeg
