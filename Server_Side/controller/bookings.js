@@ -29,6 +29,23 @@ exports.postBooking = async (req, res, next) => {
   });
 };
 
+exports.deleteBooking = async (req, res, next) => {
+  try {
+    const booking = await Booking.find(` id : ${req.params.id}`);
+    await booking.remove();
+    return {
+      status: 'success',
+      response: true,
+    };
+  } catch (err) {
+    return {
+      status: 'error',
+      response: false,
+      error: err.message,
+    };
+  }
+};
+
 exports.postCustomBooking = async (req, res, next) => {
   const location = req.body.location;
   const user = req.body.user;

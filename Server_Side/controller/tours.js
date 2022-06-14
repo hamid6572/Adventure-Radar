@@ -20,7 +20,9 @@ exports.postTour = async (req, res, next) => {
   const maxGroupSize = req.body.maxGroupSize;
   const startingLocation = req.body.startingLocation;
   const coverImage = req.body.coverImage;
+  const user = req.body.user;
   const tour = new Tour({
+    user: user,
     name: name,
     price: price,
     location: location,

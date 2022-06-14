@@ -17,6 +17,7 @@ function Createtour(props) {
   function tourHandeler(event) {
     event.preventDefault();
     tourData = {
+      user: localStorage.getItem('userId'),
       name: nameRef.current.value,
       price: priceRef.current.value,
       location: locationRef.current.value,

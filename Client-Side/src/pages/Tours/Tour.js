@@ -4,11 +4,12 @@ import { useNavigate, useParams } from 'react-router-dom';
 import { ThreeDots } from 'react-loader-spinner';
 import { useState } from 'react';
 import { toast } from 'react-toastify';
-let tour;
+let tour = {};
 
 function Tour(props) {
   let { slug } = useParams();
   const [isLoading, setIsLoading] = useState(true);
+  const [user, setUser] = useState(localStorage.getItem('Username'));
   const navigate = useNavigate();
   let err = new Error();
 
@@ -28,9 +29,9 @@ function Tour(props) {
     console.log(tour);
     setIsLoading(false);
   });
+  let bookingData;
 
   const onBooking = (event) => {
-    let bookingData;
     event.preventDefault();
     bookingData = {
       tour: tour._id,
@@ -76,7 +77,7 @@ function Tour(props) {
     left: '50%',
     transform: 'translate(-50%, -50%)',
   };
-
+  console.log('assss', typeof tour.user, typeof localStorage.getItem('userId'));
   return (
     <Layout>
       {isLoading ? (
@@ -119,9 +120,26 @@ function Tour(props) {
             </div>
           </section>
           <center>
-            <button className="btn btn--green btn--small" onClick={onBooking}>
-              Book Tour
-            </button>
+            {tour.user !== localStorage.getItem('userId') ? (
+              <button className="btn btn--green btn--small" onClick={onBooking}>
+                Book Tour
+              </button>
+            ) : (
+              <div>
+                <button
+                  className="btn btn--green btn--small"
+                  onClick={onBooking}
+                >
+                  Update Tour
+                </button>
+                <button
+                  className="btn btn--green btn--small"
+                  onClick={onBooking}
+                >
+                  Delete Tour
+                </button>
+              </div>
+            )}
           </center>
           <section className="section-description">
             <div className="overview-box">

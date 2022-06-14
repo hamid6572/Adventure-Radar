@@ -1,6 +1,10 @@
 const mongoose = require('mongoose');
 const slugify = require('slugify');
 const tourSchema = new mongoose.Schema({
+  user: {
+    type: mongoose.Schema.ObjectId,
+    ref: 'User',
+  },
   name: {
     type: String,
     required: [true, 'Name required'],
