@@ -31,7 +31,7 @@ export default function Bookings(props) {
         <span className="candidate-list-time order-1">{props.paid}</span>
       </td>
       <td>
-        <ul className="list-unstyled mb-0 d-flex justify-content-end">
+        <ul className="list-unstyled mb-0 justify-content-end" style={{display:"flex", flexDirection:"row", listStyle: "none"}}>
           <li>
             <a
               href="#"

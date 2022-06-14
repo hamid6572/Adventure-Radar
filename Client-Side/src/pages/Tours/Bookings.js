@@ -36,7 +36,7 @@ function Bookings(props) {
 
   return (
     <Layout user={props.user}>
-      <div className="card-container">
+      <div className="card-container" style={{display:"flex", flexDirection:"column"}}>
         {isLoading ? (
           <div style={style}>
             <ThreeDots
@@ -55,7 +55,7 @@ function Bookings(props) {
                     <div className="row">
                       <div className="col-md-12">
                         <div className="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
-                          <table className="table manage-candidates-top mb-0">
+                          <table className="table manage-candidates-top mb-0" style={{fontSize:"22px"}}>
                             <thead>
                               <tr>
                                 <th>Tourist Name</th>
