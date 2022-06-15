@@ -4,7 +4,6 @@ function onLoginListener(userData) {
   console.log(userData);
 }
 function Login(props) {
-  console.log(props.user);
   return (
     <LoginComp
       user={props.user}

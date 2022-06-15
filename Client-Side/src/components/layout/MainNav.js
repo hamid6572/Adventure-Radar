@@ -5,6 +5,9 @@ function MainNav(props) {
 
   const handleLogout = () => {
     localStorage.removeItem('Username');
+    localStorage.removeItem('token');
+    localStorage.removeItem('userId');
+
     setUser(undefined);
   };
 
@@ -34,9 +37,17 @@ function MainNav(props) {
               <Link to="/bookings" className="nav__el">
                 Bookings
               </Link>
-              <Link to="/customtour" className="nav__el">
-                Custom Tour
-              </Link>
+              {user == 'admin' ? (
+                <>
+                  <Link to="/users" className="nav__el">
+                    Users
+                  </Link>
+                </>
+              ) : (
+                <Link to="/customtour" className="nav__el">
+                  Custom Tour
+                </Link>
+              )}
               <span className="nav__el">Hi, {user}!</span>
               <Link to="/" className="nav__el" onClick={handleLogout}>
                 Logout

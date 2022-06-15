@@ -30,9 +30,10 @@ exports.postBooking = async (req, res, next) => {
 };
 
 exports.deleteBooking = async (req, res, next) => {
+  console.log(req.params.id);
   try {
-    const booking = await Booking.find(` id : ${req.params.id}`);
-    await booking.remove();
+    await Booking.deleteOne({ _id: req.params.id });
+
     return {
       status: 'success',
       response: true,

@@ -24,7 +24,6 @@ exports.signup = async (req, res, next) => {
       email: email,
       password: hashedPassword,
     });
-    console.log(user);
     const userExist = await User.findOne({ email: email }); //user exists already
     if (userExist) {
       const err = new Error('user exits already');

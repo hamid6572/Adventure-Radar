@@ -11,6 +11,7 @@ function Overview(props) {
   const getAllTours = async () => {
     const response = await fetch('http://localhost:8000/getAllTours', {
       method: 'GET',
+      Authorization: `Basic ${localStorage.getItem('Username')}`,
       headers: {
         'Content-Type': 'application/json',
       },

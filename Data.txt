@@ -1,3 +1,20 @@
+Admin
+  Users
+  bookings
+  tours
+name: "admin"
+pass: "12345678"
+
+Agency
+  create tours
+  tours
+name: "agency1"
+pass: "pakistan1"
+
+Users
+  tours
+  bookings
+
 kumrat assets/img/tours/Kumrat-Valley.jpg
 kalam assets/img/tours/Kalam,Swat_KPK_(Pakistan).jpg
 kashmir assets/img/tours/Neeulm_Valley_AJK_(Arang_Kel).jpg

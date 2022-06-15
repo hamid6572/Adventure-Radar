@@ -70,6 +70,31 @@ function Tour(props) {
         });
       });
   };
+
+  const onDelete = (event) => {
+    event.preventDefault();
+    fetch(`http://localhost:8000/deletetour/${tour._id}`, {
+      method: 'GET',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    });
+    navigate('/');
+  };
+  const onUpdate = async () => {
+    const response = await fetch(
+      `http://localhost:8000/updatetour/${tour._id}`,
+      {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+      }
+    );
+    await response.json().then((data) => {
+      console.log(data[0]);
+    });
+  };
   const style = {
     position: 'absolute',
     top: '50%',
@@ -127,13 +152,13 @@ function Tour(props) {
               <div>
                 <button
                   className="btn btn--green btn--small"
-                  onClick={onBooking}
+                  onClick={onUpdate}
                 >
                   Update Tour
                 </button>
                 <button
                   className="btn btn--green btn--small"
-                  onClick={onBooking}
+                  onClick={onDelete}
                 >
                   Delete Tour
                 </button>

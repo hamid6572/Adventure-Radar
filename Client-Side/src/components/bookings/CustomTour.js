@@ -23,7 +23,6 @@ function Createtour(props) {
       user: localStorage.getItem('userId'),
     };
     event.preventDefault();
-    console.log(tourData);
     fetch('http://localhost:8000/custombooking', {
       method: 'POST',
       body: JSON.stringify(tourData),
@@ -40,7 +39,6 @@ function Createtour(props) {
           console.log(data.message);
           throw new Error('Failed to fetch tour status.');
         }
-        console.log('success');
         navigate('/bookings');
       })
       .catch((err) => {

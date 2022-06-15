@@ -34,6 +34,7 @@ function Login(props) {
         }
         localStorage.setItem('Username', data.userName);
         localStorage.setItem('userId', data.userId);
+        localStorage.setItem('token', data.token);
         console.log('success');
         navigate('/');
       })

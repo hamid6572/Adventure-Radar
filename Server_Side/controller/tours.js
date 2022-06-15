@@ -36,3 +36,42 @@ exports.postTour = async (req, res, next) => {
     Success: 'Tour inserted',
   });
 };
+
+// delete user
+
+exports.deleteTour = async (req, res, next) => {
+  console.log(req.params.id);
+  try {
+    await Tour.deleteOne({ _id: req.params.id });
+
+    return {
+      status: 'success',
+    };
+  } catch (err) {
+    return {
+      status: 'error',
+      response: false,
+      error: err.message,
+    };
+  }
+};
+
+// update user
+
+exports.updateTour = async (req, res, next) => {
+  try {
+    const tour = await Tour.find(` id : ${req.params.id}`);
+    Object.assign(tour, req.body);
+    tour.save();
+    return {
+      status: 'success',
+      responce: true,
+    };
+  } catch (err) {
+    return {
+      status: 'Error',
+      response: false,
+      error: err.message,
+    };
+  }
+};
