@@ -1,8 +1,12 @@
 const Booking = require('../models/bookings');
+const stripe = require('stripe')(
+  'sk_test_51LBC7iF2SLIp0YJ6MzX02KdMJoIIocwNfdfO1i9t7N9mBne4szufvF9qtUSCg341GzOiW6RV3xQMjOV4nXWrplID00NcRrUHoA'
+);
 const { validationResult } = require('express-validator');
 
 exports.getBookings = async (req, res, next) => {
   const bookings = await Booking.find();
+  console.log(bookings);
   res.json({
     Tours: bookings,
   });
@@ -10,7 +14,6 @@ exports.getBookings = async (req, res, next) => {
 
 exports.getBooking = async (req, res, next) => {
   const booking = await Booking.find({ slug: req.params.slug });
-  console.log('&&&', booking);
   res.json({ ...booking });
 };
 
@@ -79,4 +82,28 @@ exports.postCustomBooking = async (req, res, next) => {
     if (!err.statusCode) err.statusCode = 500;
     next(err);
   }
+};
+
+exports.payBooking = async (req, res) => {
+  const booking = await Booking.findById(req.body.id);
+
+  console.log(booking);
+
+  const session = await stripe.checkout.sessions.create({
+    success_url: 'http://localhost:3000/paymentSuccess',
+    cancel_url: 'http://localhost:3000/paymentFailure',
+    line_items: [
+      {
+        name: booking.location,
+        amount: booking.price,
+        currency: 'usd',
+        quantity: '1',
+      },
+    ],
+    mode: 'payment',
+  });
+
+  console.log(session.id);
+
+  res.json({ id: session.id });
 };

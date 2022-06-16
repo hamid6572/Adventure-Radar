@@ -1,4 +1,5 @@
 import { useNavigate } from 'react-router-dom';
+import { loadStripe } from '@stripe/stripe-js';
 
 export default function Bookings(props) {
   const navigate = useNavigate();
@@ -11,6 +12,24 @@ export default function Bookings(props) {
       },
     });
     navigate('/');
+  };
+
+  const onStripeRedirection = async (e) => {
+    const stripePromise = await loadStripe(
+      'pk_test_51LBC7iF2SLIp0YJ6gtk6x2syeZq0t2Cv6tpRdIpXQL0InPuTLt5WPfUjj0ivyLdTSkyd8yYfwLkrcVNVMkSIFHQl009UOVFlpS'
+    );
+
+    const response = await fetch('http://localhost:8000/pay', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify({ id: props.id }),
+    });
+
+    const data = await response.json();
+
+    return stripePromise.redirectToCheckout({ sessionId: data.id });
   };
   return (
     <tr className="candidates-list" style={{ fontSize: '18px' }}>
@@ -53,6 +72,9 @@ export default function Bookings(props) {
             >
               <i className="far fa-trash-alt" />
             </button>
+          </li>
+          <li>
+            <button onClick={onStripeRedirection}>Pay Now</button>
           </li>
         </ul>
       </td>

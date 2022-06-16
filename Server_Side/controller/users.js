@@ -81,14 +81,20 @@ exports.deleteUser = async (req, res, next) => {
 
 exports.updateUser = async (req, res, next) => {
   try {
-    const user = await User.find(` email : ${req.params.email}`);
-    Object.assign(user, req.body);
-    user.save();
+    const hashedPassword = await bcryptjs.hash(req.body.password, 12); //encrypting password
+    const user = await User.findOneAndUpdate(
+      { _id: req.params.id },
+      {
+        username: req.body.username,
+        password: hashedPassword,
+      }
+    );
     return {
       status: 'success',
       responce: true,
     };
   } catch (err) {
+    console.log(err);
     return {
       status: 'Error',
       response: false,

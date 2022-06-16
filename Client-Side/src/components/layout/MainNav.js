@@ -17,6 +17,7 @@ function MainNav(props) {
         <Link className="nav__el" to="/">
           Adventure Radar
         </Link>
+        {user ? <span className="nav__el">Hi, {user}!</span> : <></>}{' '}
       </nav>
       <div className="header__logo">
         <img src="/assets/img/logo-white.png" alt="Natours logo" />
@@ -44,12 +45,19 @@ function MainNav(props) {
                   </Link>
                 </>
               ) : (
-                <Link to="/customtour" className="nav__el">
-                  Custom Tour
-                </Link>
+                <div>
+                  <Link to="/customtour" className="nav__el">
+                    Custom Tour
+                  </Link>
+                  <Link
+                    to={`/editprofile/${localStorage.getItem('Username')}}`}
+                    className="nav__el"
+                  >
+                    Edit Profile
+                  </Link>
+                </div>
               )}
-              <span className="nav__el">Hi, {user}!</span>
-              <Link to="/" className="nav__el" onClick={handleLogout}>
+              <Link to="/" className="nav__el ml-5" onClick={handleLogout}>
                 Logout
               </Link>
             </>

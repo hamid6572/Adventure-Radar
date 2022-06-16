@@ -50,7 +50,7 @@ function Bookings(props) {
                 </th>
                 <th>
                   <i className="fas fa-envelope pr-1" />
-                  Email
+                  Booked on
                 </th>
                 <th>Destination</th>
                 <th>Actions</th>

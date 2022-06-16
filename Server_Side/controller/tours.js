@@ -86,23 +86,6 @@ exports.deleteTour = async (req, res, next) => {
 // update user
 
 exports.updateTour = async (req, res, next) => {
-  const price = req.body.price;
-  const location = req.body.location;
-  const duration = req.body.duration;
-  const maxGroupSize = req.body.maxGroupSize;
-  const startingLocation = req.body.startingLocation;
-  const coverImage = req.body.coverImage;
-  const user = req.body.user;
-  const tourData = new Tour({
-    user: user,
-    price: price,
-    location: location,
-    duration: duration,
-    maxGroupSize: maxGroupSize,
-    startingLocation: startingLocation,
-    coverImage: coverImage,
-  });
-  delete tourData._id;
   try {
     const tour = await Tour.findOneAndUpdate(
       { _id: req.params.id },
