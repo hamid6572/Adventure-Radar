@@ -24,7 +24,7 @@ export default function Bookings(props) {
       headers: {
         'Content-Type': 'application/json',
       },
-      body: JSON.stringify({ id: props.id }),
+      body: JSON.stringify({ id: props.booking._id }),
     });
 
     const data = await response.json();
@@ -65,7 +65,7 @@ export default function Bookings(props) {
           <li class="ml-5">
             <button
               onClick={onDelete}
-              className="text-danger"
+              className="text-danger custom-btn"
               data-toggle="tooltip"
               title
               data-original-title="Delete"
@@ -74,7 +74,13 @@ export default function Bookings(props) {
             </button>
           </li>
           <li>
-            <button onClick={onStripeRedirection}>Pay Now</button>
+            <button
+              className="text-success custom-btn ml-4"
+              style={{ offset: '0' }}
+              onClick={onStripeRedirection}
+            >
+              Pay Now
+            </button>
           </li>
         </ul>
       </td>

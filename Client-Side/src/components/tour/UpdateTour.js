@@ -84,7 +84,8 @@ function Updatetour(props) {
               <input
                 className="form__input"
                 id="price"
-                type="text"
+                type="number"
+                min="1"
                 defaultValue={tour.price}
                 required=""
                 ref={priceRef}
@@ -97,7 +98,8 @@ function Updatetour(props) {
                 <input
                   className="form__input"
                   id="duration"
-                  type="text"
+                  type="number"
+                  min="1"
                   defaultValue={tour.duration}
                   required=""
                   ref={durationRef}
@@ -110,7 +112,8 @@ function Updatetour(props) {
                 <input
                   className="form__input"
                   id="maxGroupSize"
-                  type="text"
+                  type="number"
+                  min="1"
                   defaultValue={tour.maxGroupSize}
                   required=""
                   ref={maxGroupSizeRef}
@@ -136,7 +139,7 @@ function Updatetour(props) {
                 <input
                   className="form__input"
                   id="coverImage"
-                  type="text"
+                  type="file"
                   defaultValue={tour.coverImage}
                   required=""
                   ref={coverImage}

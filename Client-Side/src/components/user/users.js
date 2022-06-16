@@ -88,7 +88,7 @@ export default function Users(props) {
             <li>
               <button
                 onClick={onDelete}
-                className="text-danger"
+                className="text-danger custom-btn"
                 data-toggle="tooltip"
                 title
                 data-original-title="Delete"
