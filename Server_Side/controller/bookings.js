@@ -10,6 +10,7 @@ exports.getBookings = async (req, res, next) => {
 
 exports.getBooking = async (req, res, next) => {
   const booking = await Booking.find({ slug: req.params.slug });
+  console.log('&&&', booking);
   res.json({ ...booking });
 };
 

@@ -57,16 +57,21 @@ function Bookings(props) {
               </tr>
             </thead>
             <tbody>
-              {bookingArray.map((booking) => (
-                <Booking
-                  name={booking.location}
-                  price={booking.price}
-                  createdAt={booking.createdAt}
-                  username={booking.user.username}
-                  paid={booking.paid ? 'paid' : 'pending'}
-                  booking={booking}
-                ></Booking>
-              ))}
+              {bookingArray.map((booking) =>
+                booking.user._id == localStorage.getItem('userId') ||
+                localStorage.getItem('Username') == 'admin' ? (
+                  <Booking
+                    name={booking.location}
+                    price={booking.price}
+                    createdAt={booking.createdAt}
+                    username={booking.user.username}
+                    paid={booking.paid ? 'paid' : 'pending'}
+                    booking={booking}
+                  ></Booking>
+                ) : (
+                  <></>
+                )
+              )}
             </tbody>
           </table>
         </div>

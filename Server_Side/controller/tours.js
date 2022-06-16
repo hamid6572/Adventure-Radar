@@ -9,7 +9,6 @@ exports.getTours = async (req, res, next) => {
 };
 
 exports.getTour = async (req, res, next) => {
-  console.log(req.params.slug);
   try {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
@@ -19,7 +18,6 @@ exports.getTour = async (req, res, next) => {
       return next(error);
     }
     const tour = await Tour.find({ slug: req.params.slug });
-    console.log('as', tour);
     res.json({ ...tour });
   } catch (err) {
     if (!err.statusCode) err.statusCode = 500;
@@ -105,7 +103,6 @@ exports.updateTour = async (req, res, next) => {
     coverImage: coverImage,
   });
   delete tourData._id;
-  console.log('##', tourData, req.params.id);
   try {
     const tour = await Tour.findOneAndUpdate(
       { _id: req.params.id },
