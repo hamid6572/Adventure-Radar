@@ -28,7 +28,6 @@ html {
 }
 
 body {
-	line-height: 1.6;
 	font-weight: 300;
 	font-family: "Lato", sans-serif;
 	color: #777;
@@ -78,7 +77,12 @@ body {
 .right {
 	text-align: right !important;
 }
-
+button{
+	background-color:#55c57a !important;
+}
+.btn--green{
+	background-color:#55c57a !important;
+}
 .line {
 	margin: 6rem 0;
 	width: 100%;
@@ -604,9 +608,6 @@ body {
 	display: grid;
 	grid-column-gap: 6rem;
 	grid-auto-flow: column;
-	overflow-x: scroll;
-	-ms-scroll-snap-type: x mandatory;
-	scroll-snap-type: x mandatory;
 }
 .reviews__card {
 	width: 30rem;
@@ -1440,13 +1441,11 @@ body{
 }
 .candidate-list-details ul li {
   margin: 5px 10px 5px 0px;
-  font-size: 13px;
 }
 
 .candidate-list .candidate-list-favourite-time {
   margin-left: auto;
   text-align: center;
-  font-size: 13px;
   -webkit-box-flex: 0;
   -ms-flex: 0 0 90px;
   flex: 0 0 90px;

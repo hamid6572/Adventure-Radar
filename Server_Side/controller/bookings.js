@@ -1,4 +1,5 @@
 const Booking = require('../models/bookings');
+const { validationResult } = require('express-validator');
 
 exports.getBookings = async (req, res, next) => {
   const bookings = await Booking.find();
@@ -60,8 +61,21 @@ exports.postCustomBooking = async (req, res, next) => {
     user: user,
     price: price,
   });
-  await booking.save();
-  res.json({
-    Success: 'Booked',
-  });
+  try {
+    const errors = validationResult(req);
+    if (!errors.isEmpty()) {
+      //checking validation on body of req
+      const error = new Error('Invalid Input!');
+      error.statusCode = 422;
+      error.data = errors.array();
+      return next(error);
+    }
+    await booking.save();
+    res.json({
+      Success: 'Booked',
+    });
+  } catch (err) {
+    if (!err.statusCode) err.statusCode = 500;
+    next(err);
+  }
 };

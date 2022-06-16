@@ -1,7 +1,15 @@
 /* eslint-disable jsx-a11y/anchor-is-valid */
 function Footer() {
   return (
-    <div className="footer">
+    <div
+      className="footer"
+      style={{
+        position: 'absolute',
+        padding: '0px',
+        bottom: '0',
+        width: '100%',
+      }}
+    >
       <div className="footer__logo">
         <img src="/assets/img/logo-green-small.png" alt="Radar" />
       </div>

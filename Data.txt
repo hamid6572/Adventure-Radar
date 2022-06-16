@@ -3,12 +3,14 @@ Admin
   bookings
   tours
 name: "admin"
+email:"admin@admin.com"
 pass: "12345678"
 
 Agency
   create tours
   tours
-name: "agency1"
+name: "touragency1"
+email:"touragency@test.com"
 pass: "pakistan1"
 
 Users
@@ -19,3 +21,6 @@ kumrat assets/img/tours/Kumrat-Valley.jpg
 kalam assets/img/tours/Kalam,Swat_KPK_(Pakistan).jpg
 kashmir assets/img/tours/Neeulm_Valley_AJK_(Arang_Kel).jpg
 Naran assets/img/tours/Naran.jpeg
+
+
+

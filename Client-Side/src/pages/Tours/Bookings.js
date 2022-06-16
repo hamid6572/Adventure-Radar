@@ -3,10 +3,9 @@ import { useEffect, useState } from 'react';
 import Booking from '../../components/bookings/Bookings';
 import { ThreeDots } from 'react-loader-spinner';
 
-let bookingArray;
-
 function Bookings(props) {
   const [isLoading, setIsLoading] = useState(true);
+  const [bookingArray, setBooking] = useState([]);
 
   const getAllBookings = async () => {
     const response = await fetch('http://localhost:8000/getAllBookings', {
@@ -19,10 +18,9 @@ function Bookings(props) {
     const data = await response.json();
     return data;
   };
-
   useEffect(() => {
     getAllBookings().then((data) => {
-      bookingArray = data.Tours;
+      setBooking(data.Tours);
       setIsLoading(false);
     });
   }, []);
@@ -50,7 +48,9 @@ function Bookings(props) {
           </div>
         ) : (
           bookingArray.map((booking) => {
-            return booking.user._id == localStorage.getItem('userId') ? (
+            <>{booking.location}</>;
+            console.log(booking);
+            return (
               <Booking
                 name={booking.location}
                 price={booking.price}
@@ -59,8 +59,6 @@ function Bookings(props) {
                 paid={booking.paid ? 'paid' : 'pending'}
                 booking={booking}
               ></Booking>
-            ) : (
-              <></>
             );
           })
         )}

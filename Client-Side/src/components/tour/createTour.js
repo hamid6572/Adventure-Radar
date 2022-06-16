@@ -39,14 +39,13 @@ function Createtour(props) {
       })
       .then((data) => {
         if (err.status !== 200) {
-          console.log(data.message);
           throw new Error('Failed to fetch tour status.');
         }
         console.log('success');
         navigate('/');
       })
       .catch((err) => {
-        toast.error('Validation failed', {
+        toast.error(err, {
           position: 'top-center',
           autoClose: 5000,
           hideProgressBar: false,
@@ -83,7 +82,8 @@ function Createtour(props) {
               <input
                 className="form__input"
                 id="price"
-                type="text"
+                type="number"
+                min="1"
                 placeholder=""
                 required=""
                 ref={priceRef}
@@ -108,7 +108,8 @@ function Createtour(props) {
                 <input
                   className="form__input"
                   id="duration"
-                  type="text"
+                  type="number"
+                  min="1"
                   placeholder=""
                   required=""
                   ref={durationRef}
@@ -121,7 +122,8 @@ function Createtour(props) {
                 <input
                   className="form__input"
                   id="maxGroupSize"
-                  type="text"
+                  type="number"
+                  min="1"
                   placeholder=""
                   required=""
                   ref={maxGroupSizeRef}
@@ -148,6 +150,7 @@ function Createtour(props) {
                   className="form__input"
                   id="coverImage"
                   type="text"
+                  accept="image/*"
                   placeholder=""
                   required=""
                   ref={coverImage}

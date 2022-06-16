@@ -10,7 +10,8 @@ const bodyParser = require('body-parser');
 const cookieParser = require('cookie-parser');
 
 app.use(express.static('public'));
-
+const cors = require('cors');
+app.use(cors());
 app.use((req, res, next) => {
   // for CORS error cross origin resource sharing due to sharing data between different servers ie this pc and ui e.g. codepen.io or client side
   res.setHeader('Access-Control-Allow-Origin', '*'); //allowing origin for every server for now
@@ -34,7 +35,7 @@ app.use((error, req, res, next) => {
   const statusCode = error.statusCode || 500;
   const msg = error.message;
   const data = error.data;
-  console.log(data);
+  console.log('asda', data);
   res.status(statusCode).json({
     message: msg,
     data: data,

@@ -60,9 +60,10 @@ exports.postUser = async (req, res, next) => {
 // delete user
 
 exports.deleteUser = async (req, res, next) => {
+  console.log(req.params.id);
   try {
-    const user = await User.find(` email : ${req.params.email}`);
-    await user.remove();
+    await User.deleteOne({ _id: req.params.id });
+
     return {
       status: 'success',
       response: true,

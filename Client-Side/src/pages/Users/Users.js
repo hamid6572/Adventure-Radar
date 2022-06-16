@@ -22,7 +22,6 @@ function Users(props) {
 
   useEffect(() => {
     getAllUsers().then((data) => {
-      console.log(data.User);
       userArray = data.User;
       setIsLoading(false);
     });
@@ -36,52 +35,39 @@ function Users(props) {
 
   return (
     <Layout user={props.user}>
-      <div className="card-container">
-        {isLoading ? (
-          <div style={style}>
-            <ThreeDots
-              type="ThreeDots"
-              color="#55c57a"
-              height={80}
-              width={80}
-            />
-          </div>
-        ) : (
-          userArray.map((user) => {
-            return (
-              <div>
-                <div className="container mt-3 mb-4">
-                  <div className="col-lg-9 mt-4 mt-lg-0">
-                    <div className="row">
-                      <div className="col-md-12">
-                        <div className="user-dashboard-info-box table-responsive mb-0 bg-white p-4 shadow-sm">
-                          <table className="table manage-candidates-top mb-0">
-                            <thead>
-                              <tr>
-                                <th>User Name</th>
-                                <th className="text-center">Email</th>
-                                <th className="action text-right">Password</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <User
-                                name={user.username}
-                                email={user.email}
-                              ></User>
-                              <br />
-                              <th></th>
-                            </tbody>
-                          </table>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            );
-          })
-        )}
-      </div>
+      {isLoading ? (
+        <div style={style}>
+          <ThreeDots type="ThreeDots" color="#55c57a" height={80} width={80} />
+        </div>
+      ) : (
+        <div className="container">
+          <h3 className="p-3 text-center"></h3>
+          <table className="table table-striped table-bordered">
+            <thead style={{ fontSize: '18px' }}>
+              <tr>
+                <th>
+                  <i className="fas fa-user pr-1" />
+                  Name
+                </th>
+                <th>
+                  <i className="fas fa-envelope pr-1" />
+                  Email
+                </th>
+                <th>Actions</th>
+              </tr>
+            </thead>
+            <tbody>
+              {userArray.map((user) => (
+                <User
+                  name={user.username}
+                  email={user.email}
+                  user={user}
+                ></User>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      )}
     </Layout>
   );
 }

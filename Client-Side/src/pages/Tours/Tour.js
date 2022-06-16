@@ -82,18 +82,7 @@ function Tour(props) {
     navigate('/');
   };
   const onUpdate = async () => {
-    const response = await fetch(
-      `http://localhost:8000/updatetour/${tour._id}`,
-      {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-      }
-    );
-    await response.json().then((data) => {
-      console.log(data[0]);
-    });
+    navigate(`/updatetour/${tour.name}`);
   };
   const style = {
     position: 'absolute',
@@ -145,9 +134,18 @@ function Tour(props) {
           </section>
           <center>
             {tour.user !== localStorage.getItem('userId') ? (
-              <button className="btn btn--green btn--small" onClick={onBooking}>
-                Book Tour
-              </button>
+              localStorage.getItem('Username') !== 'admin' &&
+              localStorage.getItem('Username') !== 'touragency1' &&
+              localStorage.getItem('Username') !== '' ? (
+                <button
+                  className="btn btn--green btn--small"
+                  onClick={onBooking}
+                >
+                  Book Tour
+                </button>
+              ) : (
+                <></>
+              )
             ) : (
               <div>
                 <button
@@ -249,75 +247,12 @@ function Tour(props) {
               />
             </div>
           </section>
-          <section className="section-map">
-            <div id="map" />
-          </section>
-          <section className="section-reviews">
+
+          <section
+            className="section-reviews"
+            style={{ overflow: 'hidden !important' }}
+          >
             <div className="reviews">
-              <div className="reviews__card">
-                <div className="reviews__avatar">
-                  <img
-                    src=".../assets/img/users/user-7.jpg"
-                    alt="Jim Brown"
-                    className="reviews__avatar-img"
-                  />
-                  <h6 className="reviews__user">Jim Brown</h6>
-                </div>
-                <p className="reviews__text">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                  Cumque dignissimos sint quo commodi corrupti accusantium
-                  veniam saepe numquam.
-                </p>
-                <div className="reviews__rating">
-                  <svg className="reviews__star reviews__star--active">
-                    <use xlinkHref="../assets/img/icons.svg#icon-star" />
-                  </svg>
-                  <svg className="reviews__star reviews__star--active">
-                    <use xlinkHref="../assets/img/icons.svg#icon-star" />
-                  </svg>
-                  <svg className="reviews__star reviews__star--active">
-                    <use xlinkHref="../assets/img/icons.svg#icon-star" />
-                  </svg>
-                  <svg className="reviews__star reviews__star--active">
-                    <use xlinkHref="../img/icons.svg#icon-star" />
-                  </svg>
-                  <svg className="reviews__star reviews__star--active">
-                    <use xlinkHref="../assets/img/icons.svg#icon-star" />
-                  </svg>
-                </div>
-              </div>
-              <div className="reviews__card">
-                <div className="reviews__avatar">
-                  <img
-                    src="../assets/img/users/user-14.jpg"
-                    alt="Laura Wilson"
-                    className="reviews__avatar-img"
-                  />
-                  <h6 className="reviews__user">Laura Wilson</h6>
-                </div>
-                <p className="reviews__text">
-                  Veniam adipisci blanditiis, corporis sit magnam aperiam ad,
-                  fuga reiciendis provident deleniti cumque similique itaque
-                  animi, sapiente obcaecati beatae accusantium.
-                </p>
-                <div className="reviews__rating">
-                  <svg className="reviews__star reviews__star--active">
-                    <use xlinkHref="../assets/img/icons.svg#icon-star" />
-                  </svg>
-                  <svg className="reviews__star reviews__star--active">
-                    <use xlinkHref="../assets/img/icons.svg#icon-star" />
-                  </svg>
-                  <svg className="reviews__star reviews__star--active">
-                    <use xlinkHref="../assets/img/icons.svg#icon-star" />
-                  </svg>
-                  <svg className="reviews__star reviews__star--active">
-                    <use xlinkHref="../assets/img/icons.svg#icon-star" />
-                  </svg>
-                  <svg className="reviews__star reviews__star--inactive">
-                    <use xlinkHref="../assets/img/icons.svg#icon-star" />
-                  </svg>
-                </div>
-              </div>
               <div className="reviews__card">
                 <div className="reviews__avatar">
                   <img
