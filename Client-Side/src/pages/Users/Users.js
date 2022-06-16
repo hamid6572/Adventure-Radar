@@ -2,12 +2,14 @@ import Layout from '../../components/layout/Layout';
 import { useEffect, useState } from 'react';
 import User from '../../components/user/users';
 import { ThreeDots } from 'react-loader-spinner';
+import { useNavigate } from 'react-router-dom';
+import NotLogin from '../NotLogin';
 
 let userArray = [];
 
 function Users(props) {
   const [isLoading, setIsLoading] = useState(true);
-
+  const navigate = useNavigate();
   const getAllUsers = async () => {
     const response = await fetch('http://localhost:8000/users/getAllUsers', {
       method: 'GET',
@@ -33,7 +35,7 @@ function Users(props) {
     transform: 'translate(-50%, -50%)',
   };
 
-  return (
+  return localStorage.getItem('userId') !== null ? (
     <Layout user={props.user}>
       {isLoading ? (
         <div style={style}>
@@ -69,6 +71,8 @@ function Users(props) {
         </div>
       )}
     </Layout>
+  ) : (
+    <NotLogin />
   );
 }
 

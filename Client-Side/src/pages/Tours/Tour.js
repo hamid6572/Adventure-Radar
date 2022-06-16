@@ -7,6 +7,7 @@ import { toast } from 'react-toastify';
 let tour = {};
 
 function Tour(props) {
+  console.log(localStorage.getItem('userId'));
   let { slug } = useParams();
   const [isLoading, setIsLoading] = useState(true);
   const navigate = useNavigate();
@@ -136,7 +137,7 @@ function Tour(props) {
             {tour.user !== localStorage.getItem('userId') ? (
               localStorage.getItem('Username') !== 'admin' &&
               localStorage.getItem('Username') !== 'touragency1' &&
-              localStorage.getItem('Username') !== '' ? (
+              localStorage.getItem('Username') !== null ? (
                 <button
                   className="btn btn--green btn--small"
                   onClick={onBooking}

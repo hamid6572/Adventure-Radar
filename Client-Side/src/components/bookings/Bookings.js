@@ -43,17 +43,6 @@ export default function Bookings(props) {
             fontSize: '18px',
           }}
         >
-          <li>
-            <a
-              href="#"
-              className="text-primary"
-              data-toggle="tooltip"
-              title
-              data-original-title="view"
-            >
-              <i className="far fa-eye" />
-            </a>
-          </li>
           <li class="ml-5">
             <button
               onClick={onDelete}
